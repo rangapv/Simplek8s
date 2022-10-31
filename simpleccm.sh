@@ -26,15 +26,17 @@ echo "Setting up the machine for Cloud Controller nitty gritty"
 #To Install the cloud-provider flags on the components & kubelet
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmstyle.sh)  >>/dev/null 2>&1
 
-while(true)
+while (true)
+do
 	{
         podc=`kubectl get po --all-namespaces | awk '{ split($0,a," "); if (a[4] == "Running") print a[4] }' | wc -l`
-	if [[ (( $podc -gt 6 )) ]]
+	if [[ (( $podc -gt 7 )) ]]
 	then
 		break
 	fi
 	echo "Waiting for k8s components to be in the Running state..."
 	}
+done
 
 echo "Installing CCM RBAC"
 #To install the RBAC for CCM
