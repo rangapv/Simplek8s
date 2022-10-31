@@ -29,7 +29,7 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmst
 while (true)
 do
 	{
-        podc=`kubectl get po --all-namespaces | awk '{ split($0,a," "); if (a[4] == "Running") print a[4] }' | wc -l` 2>/dev/null
+        podc=`kubectl get po --all-namespaces | awk '{ split($0,a," "); if (a[4] == "Running") print a[4] }' | wc -l 2>/dev/null`
 	if [[ (( $podc -gt 7 )) ]]
 	then
 	        sleep 10s
