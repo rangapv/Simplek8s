@@ -29,8 +29,9 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmst
 while(true)
 	{
         podc=`kubectl get po --all-namespaces | awk '{ split($0,a," "); if (a[4] == "Running") print a[4] }' | wc -l`
-	if [[ (( $podc -gt 6 )) ]] 
-	break
+	if [[ (( $podc -gt 6 )) ]]
+	then
+		break
 	fi
 	echo "Waiting for k8s components to be in the Running state..."
 	}
