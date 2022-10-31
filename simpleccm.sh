@@ -18,10 +18,12 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k
 #To Install the cloud-provider flags on the components & kubelet
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmstyle.sh)  >>/dev/null 2>&1
 
+sleep 45s
+
 #To install the RBAC for CCM
 `kubectl apply -f https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/CCM/ccm-rbac-outree.yaml`
 
 #To install the AWS Cloud COntroller Manager
 `kubectl apply -f https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/CCM/aws/ccm-aws-outtree.yaml`
 
-echo "check the pods kunectl get pods --all-namespaces"
+echo "check the pods kubectl get pods --all-namespaces"
