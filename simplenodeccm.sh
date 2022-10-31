@@ -19,3 +19,6 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/nodec
 
 #To CCM only configure the cloud-provider flags on the kubelet
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmstyle.sh)  >>/dev/null 2>&1
+
+#
+echo "Component install complete sudo kubeadm join ....NOW"

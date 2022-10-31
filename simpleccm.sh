@@ -21,5 +21,7 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmst
 #To install the RBAC for CCM
 `kubectl apply -f https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/CCM/ccm-rbac-outree.yaml`
 
-#To Install the Statefule set ebs-csi on aws ec2 
-#source <(curl -s https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/StatefulSet/aws/ebs-csi/install-csi.sh)  >>/dev/null 2>&1
+#To install the AWS Cloud COntroller Manager
+`kubectl apply -f https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/CCM/aws/ccm-aws-outtree.yaml`
+
+echo "check the pods kunectl get pods --all-namespaces"
