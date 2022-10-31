@@ -29,13 +29,14 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmst
 while (true)
 do
 	{
+	echo "Waiting for k8s components to be in the Running state..."
+        sleep 45s
         podc=`kubectl get po --all-namespaces | awk '{ split($0,a," "); if (a[4] == "Running") print a[4] }' | wc -l 2> /dev/null`
+        echo "Checking again in a bit"
 	if [[ (( $podc -gt 7 )) ]]
 	then
-	        sleep 10s
 		break
 	fi
-	echo "Waiting for k8s components to be in the Running state..."
 	}
 done
 
