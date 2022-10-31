@@ -28,7 +28,7 @@ source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmst
 
 echo "Setting up for Cloud controller containers"
 #To install the Secrets for the CCM containers
-source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metamaster.sh)  >>/dev/null 2>&1
+source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metamaster.sh $1 $2)  >>/dev/null 2>&1
 
 while (true)
 do
