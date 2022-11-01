@@ -27,9 +27,6 @@ echo "Setting up the machine for Cloud Controller nitty gritty"
 #To Install the cloud-provider flags on the components & kubelet
 source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/ccmstyle.sh)  >>/dev/null 2>&1
 
-echo "Setting up for Cloud controller containers"
-#To install the Secrets for the CCM containers
-source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metamaster.sh $1 $2)  >>/dev/null 2>&1
 
 while (true)
 do
@@ -45,6 +42,10 @@ do
 	}
 done
 
+echo "Setting up for Cloud controller containers"
+#To install the Secrets for the CCM containers
+source <(curl -s https://raw.githubusercontent.com/rangapv/metascript/main/metamaster.sh)  >>/dev/null 2>&1
+
 echo "Installing CCM RBAC"
 #To install the RBAC for CCM
 `kubectl apply -f https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/CCM/ccm-rbac-outree.yaml`
@@ -53,4 +54,4 @@ echo "Installing CCM for AWS"
 #To install the AWS Cloud COntroller Manager
 `kubectl apply -f https://raw.githubusercontent.com/rangapv/Kube-Manifests/master/CCM/aws/ccm-aws-outtree.yaml`
 
-echo "check the pods kubectl get pods --all-namespaces"
+echo "check the pods \"kubectl get pods --all-namespaces\" & ensure they are Running "
