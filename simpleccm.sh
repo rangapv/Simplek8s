@@ -21,6 +21,7 @@ echo "Installing the Networking and Dashboard..."
 #To install flannel and Dashboard
 source <(curl -s https://raw.githubusercontent.com/rangapv/k8s/master/kube_adm/k8sfladash.sh)  >>/dev/null 2>&1
 echo "FINISHED Installing the Networking and Dashboard..."
+echo "The kubernetes install log can be found in \"flag.txt\" file in the current directory, use the JOIN command for Nodes"
 
 echo "Setting up the machine for Cloud Controller nitty gritty"
 #To Install the cloud-provider flags on the components & kubelet
@@ -34,7 +35,7 @@ while (true)
 do
 	{
 	echo "Waiting for k8s components to be in the Running state..."
-        sleep 45s
+        sleep 55s
         podc=`kubectl get po --all-namespaces | awk '{ split($0,a," "); if (a[4] == "Running") print a[4] }' | wc -l 2> /dev/null`
         echo "Checking again in a bit"
 	if [[ (( $podc -gt 7 )) ]]
